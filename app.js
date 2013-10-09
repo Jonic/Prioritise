@@ -2,20 +2,22 @@
 var express = require('express');
 var app     = express();
 
-//	Module dependencies
-var flash            = require('connect-flash');
-var expressValidator = require('express-validator');
-var hbs              = require('hbs');
-var http             = require('http');
-var mongoose         = require('mongoose');
-var mongostore       = require('connect-mongo')(express);
-var path             = require('path');
+//	Core dependencies
+var http = require('http');
+var path = require('path');
+
+//	npm dependencies
+var flash      = require('connect-flash');
+var validator  = require('express-validator');
+var hbs        = require('hbs');
+var mongoose   = require('mongoose');
+var mongostore = require('connect-mongo')(express);
+
+//	Setup site configuration
+require('./app/config/bootstrap.js')(app);
 
 //	Enable Gzip compression
 app.use(express.compress());
-
-//	Create database connection
-require('./config/db.js')();
 
 //	Define view engine and layouts
 app.set('view engine', 'hbs');
@@ -25,10 +27,10 @@ app.set('views', __dirname + '/app/views');
 app.use(express.bodyParser());
 
 //	Setup validation middleware
-app.use(expressValidator());
+app.use(validator());
 
 //	Configure cookie parser
-app.use(express.cookieParser('you should know me better than that'));
+app.use(express.cookieParser(app.get('cookie parser token')));
 
 //	Enable HTTP error handler
 app.use(express.errorHandler());
@@ -47,7 +49,7 @@ app.use(express.session({
 	cookie: {
 		maxAge: (60 * 60 * 24 * 28 * 1000) // 28 days in miliseconds
 	},
-	secret: 'i should live in salt for leaving you behind',
+	secret: app.get('express session secret'),
 	store: new mongostore({
 		db:mongoose.connection.db
 	}, function (err) {
@@ -55,7 +57,7 @@ app.use(express.session({
 	})
 }));
 
-//	Define static assets
+//	Define static assets directory
 app.use(express.static(path.join(__dirname, '/public')));
 
 //	Enable CSRF Protection
@@ -74,7 +76,7 @@ app.use(function (req, res, next) {
 app.use(app.router);
 
 //	Define routes for application
-require('./config/routes.js')(app);
+require('./app/init.js')(app);
 
 //	Set server port
 app.set('port', process.env.PORT || 3000);

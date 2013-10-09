@@ -1,3 +1,6 @@
+
+//	Generic utility middleware
+exports.utils = require('./utils_helper');
+
+//	Lists middleware
 exports.lists = require('./lists_helper');
-exports.locals = require('./locals_helper');
-exports.redirection = require('./redirection_helper');

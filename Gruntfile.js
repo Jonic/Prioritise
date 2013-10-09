@@ -100,7 +100,6 @@ module.exports = function (grunt) {
 			dev: {
 				options: {
 					file: 'app.js',
-					nodeArgs: ['--debug'],
 					watchedExtensions: ['hbs', 'js'],
 					watchedFolders: ['app', 'config'],
 					ignoredFiles: ['app/assets/**', 'public/**', 'node_modules/**'],

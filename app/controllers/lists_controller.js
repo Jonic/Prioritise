@@ -1,4 +1,3 @@
-'use strict';
 
 // GET /lists
 // GET /lists.json

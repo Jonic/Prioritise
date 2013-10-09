@@ -5,7 +5,7 @@ module.exports = function (app) {
 
 	//	Catch-all Routes
 	app.all('*', [
-		helpers.locals.set
+		helpers.utils.setLocals
 	]);
 
 

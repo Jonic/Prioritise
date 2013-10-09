@@ -1,4 +1,3 @@
-'use strict';
 
 // GET: /
 exports.home = function (req, res) {
