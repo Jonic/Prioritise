@@ -1,4 +1,6 @@
 
+'use strict';
+
 module.exports = function (app) {
 
 	var connectionString = app.get('database connection string');

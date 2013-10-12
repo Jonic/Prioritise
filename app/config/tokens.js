@@ -1,4 +1,6 @@
 
+'use strict';
+
 module.exports = function (app) {
 
 	app.set('cookie parser token', 'you should know me better than that');

@@ -1,4 +1,6 @@
 
+'use strict';
+
 //	Generic utility middleware
 exports.utils = require('./utils_helper');
 

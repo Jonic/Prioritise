@@ -1,1 +1,56 @@
-<h1>Editing List</h1>
+
+<h1>New List</h1>
+
+<form action="/lists/{{list._id}}" class="reorder-features" method="post">
+	<fieldset>
+		<input type="hidden" name="_csrf" value="{{token}}" />
+		<input type="hidden" name="_method" value="put" />
+
+		<h2>General Settings</h2>
+
+		<p>
+			<label for="title">List Title</label>
+			<input id="title" name="title" type="text" value="{{list.title}}" />
+		</p>
+
+		<p>
+			<label for="password-client">Client Password</label>
+			<input id="password-client" name="passwordClient" type="password" value="{{list.password.client}}" />
+		</p>
+
+		<p>
+			<label for="password-admin">Admin Password</label>
+			<input id="password-admin" name="passwordAdmin" type="password" value="{{list.password.admin}}" />
+		</p>
+	</fieldset>
+
+	<fieldset>
+		<h2>Features</h2>
+
+		<script id="feature-item-template" type="text/x-handlebars-template">
+			<li class="feature-item">
+				<span>O</span>
+				<input class="feature-input" name="features[]" type="type" value="{{title}}" />
+				<a class="remove-feature" href="#">Delete</a>
+			</li>
+		</script>
+
+		<ul class="features-list">
+			{{#if list.features}}
+				{{#each list.features}}
+					<li class="feature-item">
+						<span>O</span>
+						<input class="feature-input" name="features[]" type="type" value="{{title}}" />
+						<a class="remove-feature" href="#">Delete</a>
+					</li>
+				{{/each}}
+			{{/if}}
+		</ul>
+
+		<p><a class="new-feature" href="#">Add Feature</a></p>
+	</fieldset>
+
+	<fieldset>
+		<button type="submit">Save</button>
+	</fieldset>
+</form>

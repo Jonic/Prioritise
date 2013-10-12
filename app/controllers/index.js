@@ -1,4 +1,6 @@
 
+'use strict';
+
 //	Generic application methods
 exports.application = require('./application_controller');
 

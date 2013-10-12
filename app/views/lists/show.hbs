@@ -1,1 +1,21 @@
-<h1>Showing List {{list.id}}</h1>
+
+	<h1>{{list.title}}</h1>
+
+	<h2>Features</h2>
+
+	<form action="/lists/{{list._id}}" class="reorder-features" method="post">
+		<input type="hidden" name="_csrf" value="{{token}}" />
+		<input type="hidden" name="_method" value="put" />
+
+		<ul class="features-list">
+		{{#if list.features}}
+			{{#each list.features}}
+				<li class="feature-item">
+					<span>O</span>
+					{{title}}
+					<input class="feature-input" name="features[]" type="hidden" value="{{title}}" />
+				</li>
+			{{/each}}
+		{{/if}}
+		</ul>
+	</form>

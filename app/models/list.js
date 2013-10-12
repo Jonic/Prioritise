@@ -1,22 +1,20 @@
 
+'use strict';
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var listSchema = new Schema({
-	items: [
+	features: [
 		{
-			title: {
-				required: true,
-				type: String
-			},
-			order: {
-				default: 0,
-				type: Number
-			}
+			title: String
 		}
 	],
-	title: String,
-	password: String
+	password: {
+		admin: String,
+		client: String
+	},
+	title: String
 });
 
-module.exports = listSchema;
+module.exports = mongoose.model('List', listSchema);

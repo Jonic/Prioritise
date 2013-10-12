@@ -1,4 +1,8 @@
 
+'use strict';
+
+var helpers = require('../helpers');
+
 // GET: /
 exports.home = function (req, res) {
 

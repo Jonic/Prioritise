@@ -1,3 +1,4 @@
+
 //	The core Express app
 var express = require('express');
 var app     = express();
@@ -65,12 +66,6 @@ app.use(express.csrf());
 
 //	Enable connect-flash module
 app.use(flash());
-
-//	Output the current HTTP verb and URL in Terminal
-app.use(function (req, res, next) {
-	console.log(req.method, req.url);
-	next();
-});
 
 //	Enable use of routes
 app.use(app.router);

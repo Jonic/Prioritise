@@ -1,4 +1,6 @@
 
+'use strict';
+
 exports.setLocals = function (req, res, next) {
 
 	if (req.session.auth) {
@@ -11,6 +13,20 @@ exports.setLocals = function (req, res, next) {
 
 };
 
-exports.redirectTo = function (req, res, next) {
+exports.respondTo = function (req, res, callbacks) {
+
+	switch (req.params.format) {
+	case 'json':
+		callbacks.json();
+		break;
+
+	case 'html':
+		callbacks.html();
+		break;
+
+	default:
+		callbacks.html();
+		break;
+	}
 
 };
