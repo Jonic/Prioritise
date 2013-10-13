@@ -3,7 +3,7 @@
 
 module.exports = function (app) {
 
-	app.set('cookie parser token', 'you should know me better than that');
-	app.set('express session secret', 'i should live in salt for leaving you behind');
+	app.set('cookie parser token', 'you keep on giving me the hold up');
+	app.set('express session secret', 'you know i wish you\'d make your mind up');
 
 };
