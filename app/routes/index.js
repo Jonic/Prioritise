@@ -1,7 +1,10 @@
 
 'use strict';
 
-module.exports = function (app, controllers, helpers) {
+var controllers = require('../controllers');
+var helpers = require('../helpers');
+
+module.exports = function (app) {
 
 	//	Catch-all Routes
 	app.all('*', [
