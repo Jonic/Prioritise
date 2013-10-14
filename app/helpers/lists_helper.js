@@ -43,6 +43,8 @@ exports.newList = function (req, res, next) {
 			throw err;
 		}
 
+		req.auth['list_' + req.list._id].admin = true;
+
 		req.list = list;
 
 		next();

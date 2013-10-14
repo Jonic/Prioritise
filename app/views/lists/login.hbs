@@ -1,0 +1,14 @@
+<h1>Login</h1>
+
+<form action="{{formAction}}" method="post">
+	<fieldset>
+		<input type="hidden" name="_csrf" value="{{token}}" />
+
+		<p>
+			<label for="password">Client Password</label>
+			<input id="password" name="password" type="password" />
+		</p>
+
+		<button type="submit">Create</button>
+	</fieldset>
+</form>
