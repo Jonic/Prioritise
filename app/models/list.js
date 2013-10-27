@@ -10,6 +10,7 @@ var listSchema = new Schema({
 			title: String
 		}
 	],
+	locked: false,
 	password: {
 		admin: String,
 		client: String

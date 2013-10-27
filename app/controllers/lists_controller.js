@@ -83,3 +83,11 @@ exports.delete = function (req, res) {
 exports.destroy = function (req, res) {
 
 };
+
+exports.login = function (req, res) {
+
+	res.render('lists/login', {
+		id: req.list._id
+	});
+
+};
