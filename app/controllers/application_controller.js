@@ -1,3 +1,4 @@
+
 'use strict';
 
 // GET: /
@@ -17,6 +18,17 @@ exports.notAuthorised = function (req, res) {
 	res.render('application/notAuthorised', {
 		page: {
 			title: 'You are not authorised for that!'
+		}
+	});
+
+};
+
+// GET: /not-found
+exports.notFound = function (req, res) {
+
+	res.render('application/notFound', {
+		page: {
+			title: 'WHAT'
 		}
 	});
 

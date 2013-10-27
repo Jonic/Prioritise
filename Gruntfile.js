@@ -1,4 +1,3 @@
-'use strict';
 
 module.exports = function (grunt) {
 
@@ -51,7 +50,7 @@ module.exports = function (grunt) {
 
 
 		jshint: {
-			files: '<%= js.input %>',
+			files: 'app/**/*.js',
 			options: {
 				jshintrc: '.jshintrc'
 			}
@@ -74,11 +73,14 @@ module.exports = function (grunt) {
 		uglify: {
 			options: {
 				banner: "<%= tag.banner %>",
+				mangle: true,
 				wrap: true
 			},
 			dist: {
 				files: {
-					'<%= js.output %>': ['<%= js.output %>']
+					'<%= js.output %>': [
+						'<%= js.output %>'
+					]
 				}
 			}
 		},
@@ -88,28 +90,41 @@ module.exports = function (grunt) {
 		watch: {
 			css: {
 				files: '<%= css.input %>',
-				tasks: ['sass:dev']
+				tasks: [
+					'sass:dev'
+				]
 			},
 			scripts: {
-				files: '<%= js.input %>',
-				tasks: ['jshint', 'concat:dev']
+				files: 'app/**/*.js',
+				tasks: [
+					'jshint',
+					'concat:dev'
+				]
 			}
 		},
 
 		nodemon: {
 			dev: {
 				options: {
-					file: 'app.js',
-					nodeArgs: ['--debug'],
-					watchedExtensions: ['hbs', 'js'],
-					watchedFolders: ['app', 'config'],
-					ignoredFiles: ['app/assets/**', 'public/**', 'node_modules/**'],
-					legacyWatch: true,
+					cwd: __dirname,
 					env: {
 						NODE_ENV: 'development',
 						PORT: '3000'
 					},
-					cwd: __dirname
+					file: 'app.js',
+					ignoredFiles: [
+						'app/assets/**',
+						'public/**',
+						'node_modules/**'
+					],
+					legacyWatch: true,
+					watchedExtensions: [
+						'hbs',
+						'js'
+					],
+					watchedFolders: [
+						'app'
+					]
 				}
 			}
 		},
@@ -118,7 +133,10 @@ module.exports = function (grunt) {
 
 		concurrent: {
 			dev: {
-				tasks: ['nodemon', 'watch'],
+				tasks: [
+					'nodemon',
+					'watch'
+				],
 				options: {
 					logConcurrentOutput: true
 				}
@@ -127,8 +145,6 @@ module.exports = function (grunt) {
 
 	});
 
-
-
 	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -136,7 +152,6 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-nodemon');
-
 
 	grunt.registerTask('default', [
 		'sass:dev',

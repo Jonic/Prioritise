@@ -1,20 +1,20 @@
+
 'use strict';
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Entry = require('./entry');
-
 var listSchema = new Schema({
-	entries: [Entry],
-	client: {
-		default: 'Client Name',
-		type: String
+	features: [
+		{
+			title: String
+		}
+	],
+	password: {
+		admin: String,
+		client: String
 	},
-	project: {
-		default: 'Project Name',
-		type: String
-	}
+	title: String
 });
 
-module.exports = listSchema;
+module.exports = mongoose.model('List', listSchema);
