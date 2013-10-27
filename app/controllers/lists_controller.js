@@ -15,15 +15,9 @@ exports.index = function (req, res) {
 // GET /lists/1.json
 exports.show = function (req, res) {
 
-	if (req.access) {
-		res.render('lists/show', {
-			list: req.list
-		});
-	} else {
-		res.render('lists/login', {
-			formAction: '/lists/' + req.list._id
-		});
-	}
+	res.render('lists/show', {
+		list: req.list
+	});
 
 };
 
@@ -37,15 +31,9 @@ exports.new = function (req, res) {
 // GET /lists/1/edit
 exports.edit = function (req, res) {
 
-	if (req.access) {
-		res.render('lists/edit', {
-			list: req.list
-		});
-	} else {
-		res.render('lists/login', {
-			formAction: '/lists/' + req.list._id + '/edit'
-		});
-	}
+	res.render('lists/edit', {
+		list: req.list
+	});
 
 };
 
@@ -79,15 +67,5 @@ exports.delete = function (req, res) {
 // DELETE /lists/1
 // DELETE /lists/1.json
 exports.destroy = function (req, res) {
-
-};
-
-exports.login = function (req, res) {
-
-	res.render('lists/edit', {
-		listId: req.list._id,
-		loginType: req.session.loginType,
-		url: req.session.redirectTo
-	});
 
 };

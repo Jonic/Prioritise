@@ -106,25 +106,25 @@ module.exports = function (grunt) {
 		nodemon: {
 			dev: {
 				options: {
+					cwd: __dirname,
+					env: {
+						NODE_ENV: 'development',
+						PORT: '3000'
+					},
 					file: 'app.js',
-					watchedExtensions: [
-						'hbs',
-						'js'
-					],
-					watchedFolders: [
-						'app'
-					],
 					ignoredFiles: [
 						'app/assets/**',
 						'public/**',
 						'node_modules/**'
 					],
 					legacyWatch: true,
-					env: {
-						NODE_ENV: 'development',
-						PORT: '3000'
-					},
-					cwd: __dirname
+					watchedExtensions: [
+						'hbs',
+						'js'
+					],
+					watchedFolders: [
+						'app'
+					]
 				}
 			}
 		},

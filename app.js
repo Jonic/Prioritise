@@ -15,7 +15,10 @@ var mongoose   = require('mongoose');
 var mongostore = require('connect-mongo')(express);
 
 //	Setup site configuration
-require('./app/config/bootstrap.js')(app);
+require('./app/config/setup.js')(app);
+
+//	Create database connection
+require('./app/config/database.js')(app);
 
 //	Enable Gzip compression
 app.use(express.compress());

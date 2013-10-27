@@ -8,6 +8,10 @@ exports.setList = function (req, res, next) {
 	List.findOne({
 		_id: req.params.id
 	}, function (err, list) {
+		if (err) {
+			throw err;
+		}
+
 		req.list = list;
 
 		next();
@@ -42,8 +46,6 @@ exports.newList = function (req, res, next) {
 		if (err) {
 			throw err;
 		}
-
-		req.auth['list_' + req.list._id].admin = true;
 
 		req.list = list;
 
