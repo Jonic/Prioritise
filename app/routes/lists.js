@@ -4,8 +4,13 @@
 module.exports = function (app, controllers, helpers) {
 
 	// GET /lists
-	// GET /lists.json
-	app.get('/lists.:format?', controllers.lists.index);
+	app.get('/lists', controllers.lists.index);
+
+	// POST /lists
+	app.post('/lists/lookup', controllers.lists.lookup);
+
+	// GET /lists
+	app.get('/lists/not-found', controllers.lists.notFound);
 
 	// GET /lists/new
 	app.get('/lists/new', controllers.lists.new);

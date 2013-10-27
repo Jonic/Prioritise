@@ -7,7 +7,21 @@ var helpers = require('../helpers');
 // GET /lists.json
 exports.index = function (req, res) {
 
-	res.render('lists/index');
+	res.redirect('/');
+
+};
+
+// POST /lists/lookup
+exports.lookup = function (req, res) {
+
+	res.redirect('/lists/' + req.body.id);
+
+};
+
+// GET /lists/not-found
+exports.notFound = function (req, res) {
+
+	res.render('lists/not-found');
 
 };
 
