@@ -58,11 +58,7 @@ exports.processLogin = function (req, res, next) {
 
 exports.destroySession = function (req, res, next) {
 
-	var id = req.list._id;
-
-	if (req.session[id]) {
-		delete req.session[id];
-	}
+	delete req.session;
 
 	next();
 

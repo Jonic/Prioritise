@@ -61,10 +61,4 @@ module.exports = function (app, controllers, helpers) {
 		helpers.authentication.processLogin
 	], controllers.lists.login);
 
-	// GET /lists/1/logout
-	app.get('/lists/:id/logout', [
-		helpers.lists.setList,
-		helpers.authentication.destroySession
-	], controllers.lists.logout);
-
 };

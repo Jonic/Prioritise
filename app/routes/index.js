@@ -8,6 +8,7 @@ module.exports = function (app) {
 
 	//	Catch-all Routes
 	app.all('*', [
+		helpers.utils.setCacheControl,
 		helpers.utils.setLocals
 	]);
 
@@ -18,5 +19,10 @@ module.exports = function (app) {
 
 	//	Lists
 	require('./lists')(app, controllers, helpers);
+
+	// GET /logout
+	app.get('/logout', [
+		helpers.authentication.destroySession
+	], controllers.application.logout);
 
 };

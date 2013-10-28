@@ -49,7 +49,7 @@ app.use(express.logger('dev'));
 app.use(express.methodOverride());
 
 //	Configure session storage
-app.use(express.session({
+app.use(express.cookieSession({
 	cookie: {
 		maxAge: (60 * 60 * 24 * 28 * 1000) // 28 days in miliseconds
 	},
