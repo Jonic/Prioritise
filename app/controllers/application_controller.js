@@ -1,7 +1,7 @@
 
 'use strict';
 
-// GET: /
+//	GET: /
 exports.home = function (req, res) {
 
 	res.render('application/home', {
@@ -12,7 +12,14 @@ exports.home = function (req, res) {
 
 };
 
-// GET: /not-authorised
+//	GET: /logout
+exports.logout = function (req, res) {
+
+	res.render('application/logout');
+
+};
+
+//	GET: /not-authorised
 exports.notAuthorised = function (req, res) {
 
 	res.render('application/notAuthorised', {
@@ -23,7 +30,7 @@ exports.notAuthorised = function (req, res) {
 
 };
 
-// GET: /not-found
+//	GET: /not-found
 exports.notFound = function (req, res) {
 
 	res.render('application/notFound', {
@@ -31,11 +38,5 @@ exports.notFound = function (req, res) {
 			title: 'WHAT'
 		}
 	});
-
-};
-
-exports.logout = function (req, res) {
-
-	res.render('application/logout');
 
 };

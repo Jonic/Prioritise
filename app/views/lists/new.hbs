@@ -1,55 +1,55 @@
-<h1>New List</h1>
+		<h1>New List</h1>
 
-<form action="/lists" method="post">
-	<fieldset>
-		<input type="hidden" name="_csrf" value="{{token}}" />
+		<form action="/lists" method="post">
+			<fieldset>
+				<input type="hidden" name="_csrf" value="{{token}}" />
 
-		<h2>General Settings</h2>
+				<h2>General Settings</h2>
 
-		<p>
-			<label for="title">List Title</label>
-			<input id="title" name="title" type="text" />
-		</p>
+				<p>
+					<label for="title">List Title</label>
+					<input id="title" name="title" type="text" />
+				</p>
 
-		<p>
-			<label for="password-client">Client Password</label>
-			<input id="password-client" name="passwordClient" type="text" />
-		</p>
+				<p>
+					<label for="password-client">Client Password</label>
+					<input id="password-client" name="passwordClient" type="text" />
+				</p>
 
-		<p>
-			<label for="password-admin">Admin Password</label>
-			<input id="password-admin" name="passwordAdmin" type="text" />
-		</p>
-	</fieldset>
+				<p>
+					<label for="password-admin">Admin Password</label>
+					<input id="password-admin" name="passwordAdmin" type="text" />
+				</p>
+			</fieldset>
 
-	<fieldset>
-		<h2>Features</h2>
+			<fieldset>
+				<h2>Features</h2>
 
-		<script id="feature-item-template" type="text/x-handlebars-template">
-			<li class="feature-item"><input class="feature-input" name="feature[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
-		</script>
+				<script id="feature-item-template" type="text/x-handlebars-template">
+					<li class="feature-item"><input class="feature-input" name="feature[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
+				</script>
 
-		<ul class="features-list">
-			<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
-			<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
-			<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
-			<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
-			<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
-		</ul>
+				<ul class="features-list">
+					<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
+					<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
+					<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
+					<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
+					<li class="feature-item"><input class="feature-input" name="features[]" type="text" /> <a class="remove-feature" href="#">Delete</a></li>
+				</ul>
 
-		<p><a class="new-feature" href="#">Add Feature</a></p>
-	</fieldset>
+				<p><a class="new-feature" href="#">Add Feature</a></p>
+			</fieldset>
 
-	<fieldset>
-		<p>
-			<label for="locked">
-				Lock list for clients
-				<input id="locked" name="locked" type="checkbox" value="true" {{#if list.locked}}checked="checked"{{/if}} />
-			</label>
-		</p>
-	</fieldset>
+			<fieldset>
+				<p>
+					<label for="locked">
+						Lock list for clients
+						<input id="locked" name="locked" type="checkbox" value="true" {{#if list.locked}}checked="checked"{{/if}} />
+					</label>
+				</p>
+			</fieldset>
 
-	<fieldset>
-		<button type="submit">Create</button>
-	</fieldset>
-</form>
+			<fieldset>
+				<button type="submit">Create</button>
+			</fieldset>
+		</form>

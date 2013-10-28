@@ -1,59 +1,30 @@
 
-//  CSS3 Mixins
-
+//	CSS3 mixins
 @import 'bourbon/bourbon';
 
-//  Variables and Constants
+//	Fonts
+@import 'fonts';
 
+//	Variables
 @import 'variables';
 
-//  Placeholders and Mixins
-
+//	Custom Placeholders and mixins
 @import 'snippets';
 
-//  Helper Classes
-
+//	Helper functions
 @import 'helpers';
 
-//  Typography
+//	Base styles and typography
+@import 'base';
 
-@import 'typography';
+//	Grid system layout
+@import 'grid';
 
-//  Interface Elements
-
+//	Interface elements
 @import 'ui';
 
+//	Main site structure
+@import 'site';
 
-
-//  Main Document Styles
-
-html {}
-
-	body {
-		//  Media Query Debug Styles
-		&.debug {
-			@import 'debug';
-		}
-	}
-
-
-
-//  Global Header
-
-.site-header {}
-
-
-
-//  Main Content
-
-.site-main {}
-
-
-
-//  Global Footer
-
-.site-footer {}
-
-
-
-//  Profile Page Modules
+//	Hacky stuff
+@import 'scratch';

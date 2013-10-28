@@ -1,16 +1,14 @@
-<form action="/lists/lookup" method="post">
+		<form action="/lists/lookup" method="post">
+			<fieldset>
+				<input type="hidden" name="_csrf" value="{{token}}" />
 
-	<fieldset>
-		<input type="hidden" name="_csrf" value="{{token}}" />
+				<h2>List Lookup</h2>
 
-		<h2>List Lookup</h2>
+				<p>
+					<label for="id">List ID</label>
+					<input id="id" name="id" type="text" />
+				</p>
 
-		<p>
-			<label for="id">List ID</label>
-			<input id="id" name="id" type="text" />
-		</p>
-
-		<button type="submit">Lookup</button>
-	</fieldset>
-
-</form>
+				<button type="submit">Lookup</button>
+			</fieldset>
+		</form>

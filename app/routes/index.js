@@ -14,15 +14,21 @@ module.exports = function (app) {
 
 	//	Generic Routes
 	app.get('/', controllers.application.home);
-
 	app.get('/not-authorised', controllers.application.notAuthorised);
 
 	//	Lists
 	require('./lists')(app, controllers, helpers);
 
-	// GET /logout
+	//	GET /logout
 	app.get('/logout', [
 		helpers.authentication.destroySession
 	], controllers.application.logout);
+
+	//	Error routes
+	app.use(function (err, req, res, next) {
+		console.error(err.stack);
+
+		res.send(500, 'Something broke!');
+	});
 
 };

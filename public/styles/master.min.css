@@ -4,100 +4,106 @@
  * @version 0.5.1
  */
 
+address:before,
+article:before,
+aside:before,
+blockquote:before,
+body:before,
+div:before,
+dl:before,
+fieldset:before,
+figcaption:before,
+figure:before,
+footer:before,
+form:before,
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before,
+header:before,
+html:before,
+li:before,
+main:before,
+ol:before,
+p:before,
+section:before,
+nav:before,
+ul:before, address:after,
+article:after,
+aside:after,
+blockquote:after,
+body:after,
+div:after,
+dl:after,
+fieldset:after,
+figcaption:after,
+figure:after,
+footer:after,
+form:after,
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after,
+header:after,
+html:after,
+li:after,
+main:after,
+ol:after,
+p:after,
+section:after,
+nav:after,
+ul:after {
+  content: '';
+  display: table;
+}
+address:after,
+article:after,
+aside:after,
+blockquote:after,
+body:after,
+div:after,
+dl:after,
+fieldset:after,
+figcaption:after,
+figure:after,
+footer:after,
+form:after,
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after,
+header:after,
+html:after,
+li:after,
+main:after,
+ol:after,
+p:after,
+section:after,
+nav:after,
+ul:after {
+  clear: both;
+}
+
 body {
-  -o-text-rendering: optimizeLegibility;
-  -ms-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
   -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  -o-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
   text-size-adjust: 100%;
-}
-
-.width-5 {
-  width: 5%;
-}
-
-.width-10 {
-  width: 10%;
-}
-
-.width-15 {
-  width: 15%;
-}
-
-.width-20 {
-  width: 20%;
-}
-
-.width-25 {
-  width: 25%;
-}
-
-.width-30 {
-  width: 30%;
-}
-
-.width-35 {
-  width: 35%;
-}
-
-.width-40 {
-  width: 40%;
-}
-
-.width-45 {
-  width: 45%;
-}
-
-.width-50 {
-  width: 50%;
-}
-
-.width-55 {
-  width: 55%;
-}
-
-.width-60 {
-  width: 60%;
-}
-
-.width-65 {
-  width: 65%;
-}
-
-.width-70 {
-  width: 70%;
-}
-
-.width-75 {
-  width: 75%;
-}
-
-.width-80 {
-  width: 80%;
-}
-
-.width-85 {
-  width: 85%;
-}
-
-.width-90 {
-  width: 90%;
-}
-
-.width-95 {
-  width: 95%;
-}
-
-.width-100 {
-  width: 100%;
 }
 
 *, *:before, *:after {
@@ -106,86 +112,181 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  background: #fbfcfc;
+  min-height: 100%;
+}
+
 body {
-  color: #444444;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  min-width: 320px;
-  overflow-x: hidden;
-  position: relative;
+  color: #6b6f74;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  min-height: 100%;
+  min-width: 320;
 }
 
 a {
-  color: #00afe0;
-  font-weight: bold;
+  color: #00b5eb;
+  cursor: pointer;
   text-decoration: none;
-  -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: color 300ms ease-in-out;
+  -moz-transition: color 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
 }
 a:active, a:focus, a:hover {
-  color: #009bc7;
-  opacity: 1;
-  text-decoration: none;
-}
-a:visited {
-  opacity: 0.75;
+  color: #00b5eb;
+  text-decoration: underline;
 }
 
-/*
+address {
+  font-style: normal;
+}
+
 b {
-	font-weight: $font-weight-bold;
+  font-weight: 700;
+}
+
+blockquote {
+  margin-bottom: 28;
+}
+blockquote p:before,
+blockquote p:after {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 0;
+}
+blockquote p:first-child:before {
+  content: '\201C';
+}
+blockquote p:last-of-type {
+  margin: 0;
+}
+blockquote p:last-of-type:after {
+  content: '\201D';
+}
+
+button {
+  border: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+cite {
+  display: block;
+  text-align: right;
+}
+
+code {
+  background: #9c9fa2;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 0 7;
+}
+
+dl {
+  margin-bottom: 28px;
+}
+dl dd {
+  margin-left: 28px;
+}
+dl dt {
+  margin: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+figure {
+  display: block;
+  margin-bottom: 28px;
+}
+figure img {
+  display: block;
+  width: 100%;
+}
+figure figcaption {
+  color: #9c9fa2;
+  font-style: italic;
+}
+
+i {
+  font-style: italic;
+}
+
+input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1, .h1,
 h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-	color: $font-color-headings;
-	font-family: $font-family-headings;
-	font-weight: $font-weight;
+h3, .h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 28px;
 }
-*/
-body.debug body.debug {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0) 23px, rgba(0, 0, 0, 0.15) 24px);
-  background: linear-gradient(to , rgba(0, 0, 0, 0.15) 24px);
-  background-size: 100% 24px;
+
+h1, .h1 {
+  font-size: 26px;
 }
-body.debug body.debug:before {
-  background: #ffc;
-  border-radius: 0 0 10px 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  content: 'Resolution width <= 320px';
-  display: block;
-  padding: 0 10px;
-  position: absolute;
-  right: 2%;
+
+h2, .h2 {
+  font-size: 24px;
 }
-@media only screen and (max-width: 320px) {
-  body.debug body.debug:before {
-    content: "Resolution width: <= 320px";
-  }
+
+h3, .h3 {
+  font-size: 22px;
 }
-@media only screen and (min-width: 320px) {
-  body.debug body.debug:before {
-    content: "Resolution width: 320px <> 560px";
-  }
+
+label {
+  margin: 0;
 }
-@media only screen and (min-width: 560px) {
-  body.debug body.debug:before {
-    content: "Resolution width: 560px <> 780px";
-  }
+
+ol li {
+  list-style: decimal;
 }
-@media only screen and (min-width: 780px) {
-  body.debug body.debug:before {
-    content: "Resolution width: 780px <> 1100px";
-  }
+ol ol, ol ul {
+  margin-bottom: 0;
 }
-@media only screen and (min-width: 1100px) {
-  body.debug body.debug:before {
-    content: "Resolution width: >= 1100px";
-  }
+
+blockquote, code, dl, ol, p, pre, td, th, ul {
+  margin: 0;
+  margin-bottom: 28px;
+}
+
+.standfirst {
+  font-size: 20px;
+}
+
+select {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+strong {
+  font-weight: 700;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 28px;
+}
+table td, table th {
+  margin: 0;
+}
+
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+time {
+  display: inline-block;
+  font-size: 14px;
+}
+
+ul li {
+  list-style: disc;
+}
+ul ol, ul ul {
+  margin-bottom: 0;
 }
