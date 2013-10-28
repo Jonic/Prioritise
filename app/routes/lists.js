@@ -43,11 +43,20 @@ module.exports = function (app, controllers, helpers) {
 		helpers.lists.updateList
 	], controllers.lists.update);
 
+	// GET /lists/:id/delete
+	app.get('/lists/:id/delete', [
+		helpers.lists.setList,
+		helpers.authentication.ensureAuthenticated,
+		helpers.authentication.ensureAdmin
+	], controllers.lists.delete);
+
 	// DELETE /lists/1
 	// DELETE /lists/1.json
-	app.delete('/lists/:id.:format?', [
+	app.delete('/lists/:id/delete', [
 		helpers.lists.setList,
-		helpers.authentication.ensureAuthenticated
+		helpers.authentication.ensureAuthenticated,
+		helpers.authentication.ensureAdmin,
+		helpers.lists.destroyList
 	], controllers.lists.destroy);
 
 	// GET /lists/1/login

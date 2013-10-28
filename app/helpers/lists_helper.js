@@ -106,3 +106,17 @@ exports.updateList = function (req, res, next) {
 	});
 
 };
+
+exports.destroyList = function (req, res, next) {
+
+	var list = req.list;
+
+	if (req.body.password !== list.password.admin) {
+		return res.redirect('/lists/' + list._id + '/delete');
+	}
+
+	list.remove(function (err) {
+		next();
+	});
+
+};
