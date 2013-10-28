@@ -1,0 +1,18 @@
+
+	<form action="/lists/{{list.id}}/delete" method="post">
+		<fieldset>
+			<input type="hidden" name="_csrf" value="{{token}}" />
+			<input type="hidden" name="_method" value="delete" />
+
+			<p>This will delete your list FUH-EVER. Are you sure you want to do this?</p>
+
+			<p>
+				<label for="password">Confirm with your admin password</label>
+				<input id="password" name="password" type="password" />
+			</p>
+
+			<a href="/lists/{{list.id}}/edit">Nah y'alirght</a>
+			or
+			<button type="submit">Yep</button>
+		</fieldset>
+	</form>

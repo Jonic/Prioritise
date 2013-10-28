@@ -8,8 +8,8 @@ exports.setList = function (req, res, next) {
 	List.findOne({
 		_id: req.params.id
 	}, function (err, list) {
-		if (err) {
-			throw err;
+		if (!list) {
+			return res.redirect('/lists/not-found');
 		}
 
 		req.list = list;
@@ -39,7 +39,8 @@ exports.newList = function (req, res, next) {
 		password: {
 			admin: req.body.passwordAdmin,
 			client: req.body.passwordClient
-		}
+		},
+		locked: req.body.locked !== undefined
 	});
 
 	list.save(function (err, list) {
@@ -48,6 +49,11 @@ exports.newList = function (req, res, next) {
 		}
 
 		req.list = list;
+
+		req.session[list.id] = {
+			client: true,
+			admin: true
+		};
 
 		next();
 	});
@@ -72,6 +78,19 @@ exports.updateList = function (req, res, next) {
 
 	list.features = features;
 
+	var id = req.list._id;
+
+	if (req.session[id].admin) {
+		list.title = req.body.title;
+
+		list.password = {
+			admin: req.body.passwordAdmin,
+			client: req.body.passwordClient
+		};
+
+		list.locked = req.body.locked !== undefined;
+	}
+
 	list.save(function (err, list) {
 		if (err) {
 			throw err;
@@ -79,6 +98,24 @@ exports.updateList = function (req, res, next) {
 
 		req.list = list;
 
+		if (req.session[id].admin) {
+			return res.redirect('/lists/' + id + '/edit');
+		}
+
+		next();
+	});
+
+};
+
+exports.destroyList = function (req, res, next) {
+
+	var list = req.list;
+
+	if (req.body.password !== list.password.admin) {
+		return res.redirect('/lists/' + list._id + '/delete');
+	}
+
+	list.remove(function (err) {
 		next();
 	});
 

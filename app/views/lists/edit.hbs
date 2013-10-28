@@ -15,12 +15,12 @@
 
 		<p>
 			<label for="password-client">Client Password</label>
-			<input id="password-client" name="passwordClient" type="password" value="{{list.password.client}}" />
+			<input id="password-client" name="passwordClient" type="text" value="{{list.password.client}}" />
 		</p>
 
 		<p>
 			<label for="password-admin">Admin Password</label>
-			<input id="password-admin" name="passwordAdmin" type="password" value="{{list.password.admin}}" />
+			<input id="password-admin" name="passwordAdmin" type="text" value="{{list.password.admin}}" />
 		</p>
 	</fieldset>
 
@@ -51,6 +51,19 @@
 	</fieldset>
 
 	<fieldset>
+		<p>
+			<label for="locked">
+				Lock list for clients
+				<input id="locked" name="locked" type="checkbox" value="true" {{#if list.locked}}checked="checked"{{/if}} />
+			</label>
+		</p>
+	</fieldset>
+
+	<fieldset>
 		<button type="submit">Save</button>
+	</fieldset>
+
+	<fieldset>
+		<a href="/lists/{{list._id}}/delete">Delete this list?</a>
 	</fieldset>
 </form>

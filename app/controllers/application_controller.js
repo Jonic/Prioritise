@@ -33,3 +33,9 @@ exports.notFound = function (req, res) {
 	});
 
 };
+
+exports.logout = function (req, res) {
+
+	res.render('application/logout');
+
+};

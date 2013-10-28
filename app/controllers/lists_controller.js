@@ -3,16 +3,28 @@
 
 var helpers = require('../helpers');
 
-// GET /lists
-// GET /lists.json
+// GET /lists.format?
 exports.index = function (req, res) {
 
-	res.render('lists/index');
+	res.redirect('/');
 
 };
 
-// GET /lists/1
-// GET /lists/1.json
+// POST /lists/lookup
+exports.lookup = function (req, res) {
+
+	res.redirect('/lists/' + req.body.id);
+
+};
+
+// GET /lists/not-found
+exports.notFound = function (req, res) {
+
+	res.render('lists/not-found');
+
+};
+
+// GET /lists/:id.format?
 exports.show = function (req, res) {
 
 	res.render('lists/show', {
@@ -28,7 +40,7 @@ exports.new = function (req, res) {
 
 };
 
-// GET /lists/1/edit
+// GET /lists/:id/edit
 exports.edit = function (req, res) {
 
 	res.render('lists/edit', {
@@ -37,8 +49,7 @@ exports.edit = function (req, res) {
 
 };
 
-// POST /lists
-// POST /lists.json
+// POST /lists.format?
 exports.create = function (req, res) {
 
 	if (req.list) {
@@ -49,23 +60,34 @@ exports.create = function (req, res) {
 
 };
 
-// PATCH/PUT /lists/1
-// PATCH/PUT /lists/1.json
+// PATCH/PUT /lists/:id.format?
 exports.update = function (req, res) {
 
 	res.redirect('/lists/' + req.list._id);
 
 };
 
-// GET /lists/1/delete
+// GET /lists/:id/delete
 exports.delete = function (req, res) {
 
-	return res.render('lists/delete');
+	return res.render('lists/delete', {
+		list: req.list
+	});
 
 };
 
-// DELETE /lists/1
-// DELETE /lists/1.json
+// DELETE /lists/:id.format?
 exports.destroy = function (req, res) {
+
+	return res.redirect('/');
+
+};
+
+// GET /lists/:id/login
+exports.login = function (req, res) {
+
+	res.render('lists/login', {
+		id: req.list._id
+	});
 
 };
