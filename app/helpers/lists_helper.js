@@ -39,7 +39,8 @@ exports.newList = function (req, res, next) {
 		password: {
 			admin: req.body.passwordAdmin,
 			client: req.body.passwordClient
-		}
+		},
+		locked: req.body.locked !== undefined
 	});
 
 	list.save(function (err, list) {
@@ -48,6 +49,11 @@ exports.newList = function (req, res, next) {
 		}
 
 		req.list = list;
+
+		req.session[list.id] = {
+			client: true,
+			admin: true
+		};
 
 		next();
 	});
@@ -72,12 +78,29 @@ exports.updateList = function (req, res, next) {
 
 	list.features = features;
 
+	var id = req.list._id;
+
+	if (req.session[id].admin) {
+		list.title = req.body.title;
+
+		list.password = {
+			admin: req.body.passwordAdmin,
+			client: req.body.passwordClient
+		};
+
+		list.locked = req.body.locked !== undefined;
+	}
+
 	list.save(function (err, list) {
 		if (err) {
 			throw err;
 		}
 
 		req.list = list;
+
+		if (req.session[id].admin) {
+			return res.redirect('/lists/' + id + '/edit');
+		}
 
 		next();
 	});

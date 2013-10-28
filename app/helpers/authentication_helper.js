@@ -27,26 +27,32 @@ exports.ensureAdmin = function (req, res, next) {
 
 exports.processLogin = function (req, res, next) {
 
-	var id = req.list._id;
+	var list = req.list;
 
-	switch (req.body.password) {
-	case req.list.password.admin:
+	var id = list._id;
+	var redirectDestination = '/lists/' + id;
+
+	var password = req.body.password;
+
+	if (password === list.password.admin) {
 		req.session[id] = {
 			admin: true,
 			client: true
 		};
-		break;
-	case req.list.password.client:
+
+		redirectDestination += '/edit';
+	} else if (password === list.password.client) {
 		req.session[id] = {
 			admin: false,
 			client: true
 		};
-		break;
-	default:
-		return next();
 	}
 
-	res.redirect('/lists/' + id);
+	if (req.session[id]) {
+		return res.redirect(redirectDestination);
+	}
+
+	next();
 
 };
 
@@ -58,6 +64,6 @@ exports.destroySession = function (req, res, next) {
 		delete req.session[id];
 	}
 
-	return res.redirect('/lists/' + id + '/login');
+	next();
 
 };
