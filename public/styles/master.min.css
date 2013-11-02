@@ -4,6 +4,19 @@
  * @version 0.5.1
  */
 
+@import url(public/vendor/normalize-css/normalize.css);
+/*
+	Third-party
+*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+	Application styles
+*/
 address:before,
 article:before,
 aside:before,
@@ -113,13 +126,13 @@ body {
 }
 
 html {
-  background: #fbfcfc;
+  background: white;
   min-height: 100%;
 }
 
 body {
-  color: #6b6f74;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #696d71;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
@@ -128,7 +141,7 @@ body {
 }
 
 a {
-  color: #00b5eb;
+  color: #2a2f34;
   cursor: pointer;
   text-decoration: none;
   -webkit-transition: color 300ms ease-in-out;
@@ -136,7 +149,7 @@ a {
   transition: color 300ms ease-in-out;
 }
 a:active, a:focus, a:hover {
-  color: #00b5eb;
+  color: #3f4348;
   text-decoration: underline;
 }
 
@@ -169,7 +182,7 @@ blockquote p:last-of-type:after {
 
 button {
   border: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 cite {
@@ -178,8 +191,7 @@ cite {
 }
 
 code {
-  background: #9c9fa2;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0 7;
 }
 
@@ -206,7 +218,6 @@ figure img {
   width: 100%;
 }
 figure figcaption {
-  color: #9c9fa2;
   font-style: italic;
 }
 
@@ -215,13 +226,13 @@ i {
 }
 
 input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Serif", Georgia, Times, "Times New Roman", serif;
   font-weight: normal;
   margin: 0;
   margin-bottom: 28px;
@@ -260,7 +271,7 @@ blockquote, code, dl, ol, p, pre, td, th, ul {
 }
 
 select {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 strong {
@@ -276,7 +287,7 @@ table td, table th {
 }
 
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 time {
@@ -290,3 +301,5 @@ ul li {
 ul ol, ul ul {
   margin-bottom: 0;
 }
+
+/* No files to import found in state/* */

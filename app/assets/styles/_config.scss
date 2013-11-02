@@ -1,0 +1,54 @@
+
+//	Media Query Breakpoints
+$break-narrow:  320;
+$break-medium:  560;
+$break-regular: 780;
+$break-wide:    1120;
+
+//	colors
+$color-bg:               #fff;
+$color-base:             #696d71;
+$color-border:           #d7d9da;
+
+$color-error:            #e54028;
+$color-error-active:     #e54028;
+
+$color-highlight:        #00b5eb;
+$color-highlight-active: #00aae6;
+
+$color-success:          #7fb539;
+$color-success-active:   #8cc042;
+
+$color-warning:          #ffff1f;
+$color-warning-active:   #ffff1f;
+
+$color-links:            #2a2f34;
+$color-links-active:     #3F4348;
+$color-links-visited:    #2a2f34;
+
+//	Font Weights
+$font-weight-light: 100;
+$font-weight:       400;
+$font-weight-bold:  700;
+
+//	Font Families
+$font-family-primary:   'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-secondary: 'Droid Serif', Georgia, Times, 'Times New Roman', serif;
+$font-family-monospace: Consolas, monaco, monospace;
+
+//	Font Sizes
+$font-size:          18px;
+$font-size-small:    14px;
+$font-size-larger:   20px;
+
+$font-size-h1:       26px;
+$font-size-h2:       24px;
+$font-size-h3:       22px;
+
+//	Line Heights
+$line-height:        28px;
+
+//	Other
+$baseline-unit:      28;
+$baseline-unit-px:   #{$baseline-unit}px;
+$padding-code:       $baseline-unit / 4;

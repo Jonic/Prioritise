@@ -1,6 +1,5 @@
 
 module.exports = function (grunt) {
-
 	grunt.initConfig({
 		css: {
 			input: 'app/assets/styles/master.scss',
@@ -22,12 +21,11 @@ module.exports = function (grunt) {
 				' */\n'
 		},
 
-
-
 		sass: {
 			options: {
 				banner: '<%= tag.banner %>',
-				noCache: true
+				noCache: true,
+				require: 'sass-globbing'
 			},
 			dev: {
 				files: {
@@ -46,8 +44,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-
 
 		jshint: {
 			files: 'app/**/*.js',
@@ -84,8 +80,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-
 
 		watch: {
 			css: {
@@ -129,8 +123,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-
-
 		concurrent: {
 			dev: {
 				tasks: [
@@ -142,7 +134,6 @@ module.exports = function (grunt) {
 				}
 			}
 		}
-
 	});
 
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -159,5 +150,4 @@ module.exports = function (grunt) {
 		'jshint',
 		'uglify'
 	]);
-
 };
