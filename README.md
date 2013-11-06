@@ -32,3 +32,7 @@ You'll need Node.js with npm, Grunt, Sass, Nodemon etc etc. Just basically keep 
 Once you've got everything with npm, try running `grunt`. That should prepare any front-end scripts that need to be compiled, and start a Node server at localhost:3000
 
 If you get stuck then shout at me on Twitter, where I'm to be found as @Jonic
+
+## What's left to be done
+
+You might notice that it's entirely lacking in design. I should get on with that.
